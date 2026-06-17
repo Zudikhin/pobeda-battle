@@ -1,6 +1,23 @@
  $(document).ready(function() {
   "use strict";
 
+    document.addEventListener('wheel', function(e) {
+        if (e.ctrlKey) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && (
+            e.key === '+' ||
+            e.key === '-' ||
+            e.key === '=' ||
+            e.key === '0'
+        )) {
+            e.preventDefault();
+        }
+    });
+
     $('.battle').addClass('loaded');
 
     $(".wrong_modal_close").click(function() {
@@ -18,6 +35,8 @@
     $('.battle_project_mob_slider').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
         infinite: true,
         fade: true,
         prevArrow: $('.battle_project_mob_btns_prev'),
@@ -47,6 +66,8 @@
         slidesToShow: 1,
         slidesToScroll: 1,
         infinite: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
         fade: true,
         prevArrow: $('.battle_about_mob_btns_prev'),
         nextArrow: $('.battle_about_mob_btns_next')
