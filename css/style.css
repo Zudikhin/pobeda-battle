@@ -803,12 +803,23 @@ input:focus {
           align-items: center;
   margin-top: 10px;
 }
+.battle_main_title_bot .spray {
+  position: absolute;
+  max-height: 20px;
+  top: -17px;
+  opacity: 0;
+}
+.battle_main_title_bot .fist {
+  height: 50px;
+}
 .battle_main_title_bot_left {
   -webkit-transform: translateX(-100vw);
           transform: translateX(-100vw);
-  height: 60px;
   position: relative;
-  top: -8px;
+  top: 4px;
+}
+.battle_main_title_bot_left .spray {
+  right: 3px;
 }
 .battle_main_title_bot_mid {
   height: 50px;
@@ -816,9 +827,23 @@ input:focus {
 .battle_main_title_bot_right {
   -webkit-transform: translateX(100vw);
           transform: translateX(100vw);
-  height: 60px;
   position: relative;
-  top: -8px;
+  top: 4px;
+}
+.battle_main_title_bot_right .spray {
+  left: 3px;
+}
+.battle_main_title_bot_letter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+.battle_main_title_bot_letter img {
+  max-height: 55px;
 }
 .battle_main p {
   font-weight: 500;
@@ -841,9 +866,16 @@ input:focus {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
 }
 .battle_main_video iframe {
-  max-width: 100%;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
   border-radius: 12px;
 }
 .battle_gift {
@@ -1259,14 +1291,15 @@ input:focus {
   .battle_main_title_top {
     max-height: 52px;
   }
-  .battle_main_title_bot_left {
-    height: 70px;
+  .battle_main_title_bot .spray {
+    max-height: 24px;
+    top: -20px;
   }
-  .battle_main_title_bot_mid {
+  .battle_main_title_bot .fist {
     height: 60px;
   }
-  .battle_main_title_bot_right {
-    height: 70px;
+  .battle_main_title_bot_letter img {
+    max-height: 65px;
   }
   .battle_review_slider .slick-slide {
     margin: 0px 10px;
@@ -1292,15 +1325,6 @@ input:focus {
   .battle_main_title_bot {
     margin-top: 15px;
   }
-  .battle_main_title_bot_left {
-    height: 80px;
-  }
-  .battle_main_title_bot_mid {
-    height: 70px;
-  }
-  .battle_main_title_bot_right {
-    height: 80px;
-  }
 }
 @media (min-width: 768px) {
   .battle_main {
@@ -1312,14 +1336,24 @@ input:focus {
   .battle_main_title_bot {
     margin-top: 15px;
   }
-  .battle_main_title_bot_left {
-    height: 110px;
+  .battle_main_title_bot .spray {
+    max-height: 30px;
+    top: -26px;
   }
-  .battle_main_title_bot_mid {
-    height: 90px;
+  .battle_main_title_bot .fist {
+    height: 80px;
   }
-  .battle_main_title_bot_right {
-    height: 110px;
+  .battle_main_title_bot_letter {
+    gap: 20px;
+  }
+  .battle_main_title_bot_letter img {
+    max-height: 90px;
+  }
+  .battle_main_title_bot_left .spray {
+    right: 5px;
+  }
+  .battle_main_title_bot_right .spray {
+    left: 5px;
   }
   .battle_main p {
     font-size: 36px;
@@ -1408,14 +1442,21 @@ input:focus {
   .battle_main_title_bot {
     margin-top: 30px;
   }
-  .battle_main_title_bot_left {
-    height: 140px;
+  .battle_main_title_bot .spray {
+    max-height: 45px;
+    top: -42px;
   }
-  .battle_main_title_bot_mid {
-    height: 130px;
+  .battle_main_title_bot .fist {
+    height: 110px;
   }
-  .battle_main_title_bot_right {
-    height: 140px;
+  .battle_main_title_bot_letter img {
+    max-height: 130px;
+  }
+  .battle_main_title_bot_left .spray {
+    right: 8px;
+  }
+  .battle_main_title_bot_right .spray {
+    left: 8px;
   }
   .battle_main p {
     font-size: 38px;
@@ -1478,14 +1519,18 @@ input:focus {
   .battle_main_title_top {
     max-height: 140px;
   }
-  .battle_main_title_bot_left {
-    height: 200px;
+  .battle_main_title_bot .fist {
+    height: 140px;
   }
-  .battle_main_title_bot_mid {
-    height: auto;
+  .battle_main_title_bot .spray {
+    max-height: 60px;
+    top: -55px;
   }
-  .battle_main_title_bot_right {
-    height: 200px;
+  .battle_main_title_bot_letter {
+    gap: 30px;
+  }
+  .battle_main_title_bot_letter img {
+    max-height: 170px;
   }
   .battle_main p {
     font-size: 40px;
@@ -1496,7 +1541,6 @@ input:focus {
   }
   .battle_main_video iframe {
     width: 100%;
-    height: 632px;
   }
   .battle_gift_row {
     gap: 74px 24px;
@@ -1607,6 +1651,26 @@ input:focus {
     opacity: 1;
   }
 }
+@-webkit-keyframes gapAnimation {
+  to {
+    gap: 0px;
+  }
+}
+@keyframes gapAnimation {
+  to {
+    gap: 0px;
+  }
+}
+@-webkit-keyframes sprayAnimation {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes sprayAnimation {
+  to {
+    opacity: 1;
+  }
+}
 .loaded .battle_main_title_bot_left {
   -webkit-animation: slideInLeft 2s ease-out forwards;
           animation: slideInLeft 2s ease-out forwards;
@@ -1615,6 +1679,16 @@ input:focus {
 .loaded .battle_main_title_bot_right {
   -webkit-animation: slideInRight 2s ease-out forwards;
           animation: slideInRight 2s ease-out forwards;
+}
+
+.loaded .battle_main_title_bot_letter {
+  -webkit-animation: gapAnimation 0.3s ease-out 1.8s forwards;
+          animation: gapAnimation 0.3s ease-out 1.8s forwards;
+}
+
+.loaded .battle_main_title_bot .spray {
+  -webkit-animation: sprayAnimation 0.4s linear 1.8s forwards;
+          animation: sprayAnimation 0.4s linear 1.8s forwards;
 }
 
 .quiz {
@@ -2883,6 +2957,9 @@ canvas {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  row-gap: 10px;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -3116,17 +3193,20 @@ canvas {
   -ms-flex-pack: center;
   justify-content: center;
   margin-top: 30px;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+.broad_block iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
 @media (min-width: 480px) {
   .broad h2 {
     font-size: 28px;
-  }
-}
-@media (min-width: 768px) {
-  .broad_block iframe {
-    width: 768px;
-    height: 435px;
   }
 }
 @media (min-width: 992px) {
@@ -3137,6 +3217,8 @@ canvas {
     font-size: 36px;
   }
   .broad_block {
+    margin: 0 auto;
+    max-width: 720px;
     margin-top: 50px;
   }
 }
